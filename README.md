@@ -1,7 +1,7 @@
 The following information should eventually go into a proper documentation-repo, but for now we use this README to define the Poseidon format.
 
 # What is Poseidon?
-Poseidon is a format to store, distribute and co-analyse (archaeo-)genetic data. It bridges a much-needed link between archaeological, geographical, temporal and genomic information.
+Poseidon is a format to store, distribute and co-analyse archaeogenetic and present-day genetic data. It bridges a much-needed link between archaeological, geographical, temporal and genomic information.
 
 Poseidon follows a modular approach, with the a single module storing information for a collection of individuals, for example those analysed in an academic publication.
 
@@ -74,6 +74,8 @@ This example shows that how a `poseidon.json` module defines other files that ar
     │   ├── sample2_qual.ranfa
 
 A Poseidon module definition file follows the schema defined in `poseidon-module-schema.json`, which also defines which fields are required or optional, and what type of genomic data can be included in which format.
+
+The idea behind defining modules via their `poseidon.json` file is to facilitate discovery of such modules in a directory tree. A tool combining datasets can search a directory tree for `poseidon.json` files and thereby immediately have access to multiple modules, ready to make queries across datasets and comparative analyses.
 
 ## Required elements of a Poseidon Module
 

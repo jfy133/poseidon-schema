@@ -1,0 +1,83 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "type" : "object",
+    "additionalProperties" : false,
+    "required" : [
+        "moduleName",
+        "maintainer",
+        "lastUpdate",
+        "version",
+        "description"
+    ],
+    "properties" : {
+        "moduleName" : {"type" : "string"},
+        "metaDataFile" : {"type" : "string"},
+        "maintainer" : {
+            "type" : "object",
+            "additionalProperties": false,
+            "required" : ["name", "email"],
+            "properties" : {
+                "name" : {"type" : "string"},
+                "email" : {"type" : "string", "format" : "email"}
+            }
+        }, 
+        "lastUpdate" : {"type" : "string", "format" : "date"},
+        "version" : {"type" : "string"},
+        "readme" : {"type" : "string"},
+        "description" : {"type" : "string"},
+        "publication" : {
+            "type" : "object",
+            "additionalProperties" : false,
+            "required" : ["Journal", "Date", "Author"],
+            "properties" : {
+                "Journal" : {"type" : "string"},
+                "Date" : {"type" : "string", "format" : "date"},
+                "Author" : {"type" : "string"},
+                "doi" : {"type" : "string"},
+                "URL" : {"type" : "string", "format" : "uri"}
+            }
+        },
+        "genomicData" : {
+            "type" : "object",
+            "additionalProperties": false,
+            "properties": {
+                "genotypeData" : {
+                    "type" : "object",
+                    "additionalProperties": false,
+                    "required" : ["snpSet", "format", "files"],
+                    "properties" : {
+                        "snpSet" : {
+                            "type" : "string",
+                            "enum" : [
+                                "1240K",
+                                "390K",
+                                "Affymetrix-HumanOrigins"
+                            ]
+                        },
+                        "format" : {"type" : "string", "enum" : ["EIGENSTRAT", "PLINK"]},
+                        "files" : {
+                            "type" : "array",
+                            "items" : {
+                                "type" : "string",
+                                "minItems" : 3,
+                                "maxItems" : 3
+                            }
+                        }
+                    }
+                },
+                "completeGenomeData" : {
+                    "type" : "object",
+                    "properties" : {
+                        "type" : "object",
+                        "additionalProperties": false,
+                        "required" : ["freqSumFile", "bedFiles"],
+                        "properties" : {
+                            "freqSumFile" : {"type" : "string"},
+                            "bedFiles" : {"type" : "array", "items" : "string"}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

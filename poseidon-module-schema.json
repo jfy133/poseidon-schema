@@ -25,18 +25,6 @@
         "version" : {"type" : "string"},
         "readme" : {"type" : "string"},
         "description" : {"type" : "string"},
-        "publication" : {
-            "type" : "object",
-            "additionalProperties" : false,
-            "required" : ["Journal", "Date", "Author"],
-            "properties" : {
-                "Journal" : {"type" : "string"},
-                "Date" : {"type" : "string", "format" : "date"},
-                "Author" : {"type" : "string"},
-                "doi" : {"type" : "string"},
-                "URL" : {"type" : "string", "format" : "uri"}
-            }
-        },
         "genomicData" : {
             "type" : "object",
             "additionalProperties": false,

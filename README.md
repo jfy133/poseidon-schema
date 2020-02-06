@@ -17,12 +17,6 @@ Here is an example for a `poseidon.json` file:
         "moduleName" : "myTestModule1",
         "metaDataFile" : "annot.csv",
         "description" : "This dataset contains information in individuals published in XXX",
-        "publication" : {
-            "PUBMED" : "1234567",
-            "Journal" : "Journal of ancient DNA",
-            "Date" : "2019-04-01",
-            "Author" : "Schiffels et al."
-        }
         "readme" : "README.md",
         "maintainer" : {
             "name": "Stephan Schiffels",
@@ -101,9 +95,6 @@ A relative path to a readme file describing more details about the module.
 
 ### metaDataFile (optional)
 A relative path to the metadata file describing the individuals. This file must follow a separate schema defined below.
-
-### publication (optional)
-A JSON object with required fields "Journal" (text), "Date" (date, formatted as YYYY-MM-DD) and "Author" (text), and optional fields "doi" (the doi of the publication) and "URL" (a URL pointing to the publication).
 
 ### genomicData (optional)
 This is a JSON object with information about the genomic data contained in the module. The following fields are allowed:

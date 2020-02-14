@@ -1,0 +1,12 @@
+{
+    "@context": "https://w3id.org/poseidon/poseidon-context.jsonld",
+    "dc:conformsTo": "poseidon:Package",
+    "dc:description": "Brief description of my package",
+    "dc:title": "My great package",
+    "dc:contributor": {
+        "dc:name" : "Charles Darwin",
+        "dc:email" : "charles.darwin@beagle.org"
+    },
+    "dc:modified": {"@value": "2020-02-13", "@type": "xsd:date"},
+    "tables": []
+}

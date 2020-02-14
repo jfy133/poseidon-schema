@@ -1,120 +1,104 @@
 [![Travis-CI Build Status](https://travis-ci.org/poseidon-framework/poseidon-schema.svg?branch=master)](https://travis-ci.org/poseidon-framework/poseidon-schema)
 
-The following information should eventually go into a proper documentation-repo, but for now we use this README to define the Poseidon format.
+# Poseidon Framework - Draft
 
-# What is Poseidon?
-Poseidon is a format to store, distribute and co-analyse archaeogenetic and present-day genetic data. It bridges a much-needed link between archaeological, geographical, temporal and genomic information.
+## Introduction
+Archaeogenetics (or, more broader, molecular archaeology -- is that a thing?) has become a fast accelerating field, with new data coming out faster than people can co-analyze. Together with samples currently being processed in the world's largest laboratories, we're now approaching genome-wide data for 10,000 ancient individuals, combining unpublished and published data. In addition, emergent fields such as ancient metagenomics and paleo-proteomics are adding complexity to a scene that already hosts data from long-established non-genetic technologies like radio-carbon dating and stable isotope analyses.
 
-Poseidon follows a modular approach, with the a single module storing information for a collection of individuals, for example those analysed in an academic publication.
+The way data is currently shared and published via academic papers, at least from genetic analyses, is mainly via releasing raw sequencing data into public repositories such as the [ENA](https://www.ebi.ac.uk/ena), while providing partial metadata on samples via poorly formatted Excel tables in the Supplement.
 
-Poseidon is - at this point - not a database, but it may very well become one. The more published datasets are published using the Poseidon-Module format, the more relevant it may become to discuss organising a centralised repository, with specific tools to download and intersect such a repository. For now, we define only the format for posiedon modules and see where it goes.
+This creates (at least) the following problems:
+1. Intermediate data such as genotypes or metagenomic profiles are often not released at all, making it hard for others to reproduce analyses. 
+2. The connection between individuals, contextual information, and genetic data becomes hard to maintain, bridging between very different repositories and sources (Excel vs. personal homepages vs. public repositories)
+4. Meta-analyses spanning datasets require enormous amounts of work on data collection and curation (the Reich team has done an [admirable job](https://reich.hms.harvard.edu/downloadable-genotypes-present-day-and-ancient-dna-data-compiled-published-papers) on that front, but it's hard to maintain this in such a centralized way within one lab.
+5. Studies that combine data from different technologies (isotopes, C14 dating, genetics) have no clear way to release such complex relationships in a concise way.
+6. Incrementally produced data, for example by adding new data to  previously published individuals, cannot be easily connected to the same individuals.
 
-# Poseidon modules
+All in all, data in the field certainly doesn't -- even remotely -- satisfy the [FAIR principles](https://en.wikipedia.org/wiki/FAIR_data) of open data: Findability, Accessibility, Interoperability, Reproducibility.
 
-A Poseidon module is a directory with data files following a layout defined in a file called `poseidon.json`. This JSON file needs to follow the [JSON-schema](https://json-schema.org) defined in `poseidon-module-schema.json`.
+---
 
-Here is an example for a `poseidon.json` file:
+**Poseidon** is a framework that seeks to provide standardized ways to store and share archaeogenetic, and perhaps more broadly, molecular archaeological datasets.
 
-    {
-        "moduleName" : "myTestModule1",
-        "metaDataFile" : "annot.csv",
-        "description" : "This dataset contains information in individuals published in XXX",
-        "readme" : "README.md",
-        "maintainer" : {
-            "name": "Stephan Schiffels",
-            "email" : "stephans.email@provider.com"
-        },
-        "lastUpdate" : "2019-07-10",
-        "version" : "1.1.0",
-        "genomicData" : {}
-            "genotypeData" : {
-                "format" : "eigenstrat",
-                "snpSet : "1240K",
-                "files" : [
-                    "genotypes/geno.txt",
-                    "genotypes/snp.txt",
-                    "genotypes/ind.txt"
-                ]
-            },
-            "completeGenomeData" : [
-                {
-                    "format" : "ranfa"
-                    "sampleName" : "sample1",
-                    "seqFile" : "complete-genome-data/sample1.ranfa",
-                    "qualFile" : "complete-genome-data/sample1_qual.ranfa",
-                },
-                {
-                    "format" : "hetfa"
-                    "sampleName" : "sample1",
-                    "seqFile" : "complete-genome-data/sample1.hetfa",
-                    "qualFile" : "complete-genome-data/sample1_qual.hetfa",
-                }
+It consists of three main components:
+1. A simple __multi-file format__ to store and share data
+2. A set of __tools and APIs__ to join, subset and analyze poseidon-formatted datasets
+3. (longer term) A __reference catalogue__ of all publicly available poseidon datasets.
+
+:::info
+In the following, we use the term _archaeogenetic_ to refer not just to genetic data, but also to isotope, Radio-Carbon and ancient proteomic data. In short, all _individual-based_ (human or non-human) data that Science can contribute to archaeological remains. 
+:::
+
+## Multi-file format
+### Data Model
+Most generally, archaeogenetic data follows a clean hierarchical structure. At the top level, we have an archaeological **site**. Then, for each site, we have **individual remains** from that site. For each remain, we have **analyses** being done, and for each analysis, we have **results**:
+
+![model-hierarchy-sketch](img/model-hierarchy-sketch.png)
+
+This hierarchical scheme lends itself to a classical relational data model with one-to-many relationships:
+
+![rel_db_mockup](img/reldb-sketch.png)
+
+> Of course, this is just a mockup, there are many aspects which are more complicated. For example, datasets also have a reference to a publications-table, which is not included here. And the parameters in each table are not exhaustive yet. [Stephan]
+
+### Package Structure
+
+### Metadata files
+
+<!-- How can we express such a system of relationships between tables? The standard answer would be "with an sqlite database" or something like that. However, that brings along its own problems. First, it's difficult to check for us whether the format of that db exactly conforms with our schemas. Second, it would be a closed file format that is difficult to edit for humans.
+
+There is a better way. We already have a become accustomed for sharing tabular data: CSV, i.e. comma-separated value files. We already use that file format quite a lot, and it's also, for example, used by David Reich in his "anno" files.
+
+However, while being very simple, CSV is also very poorly formatted. There is no way to enforce a given schema, the datatypes are arbitrary, and there is no standard way to define relationships between tables.
+
+CSV on the web (CSVW) is a convention recommended by the World Wide Web Consortium (W3C), for how to share tabular data across the web ([here](https://www.w3.org/TR/tabular-data-primer/) is a primer and [here](https://www.w3.org/TR/tabular-metadata/) the full definitions). The basic idea is to supplement a CSV file with a metadata file that describes its schema and stores critical meta-information about the data, such as its publisher, a last-modified-date, and most importantly the column names and datatypes.
+
+Let's say we have two CSV files. First, a file called `sites.csv`:
+
+```csv
+site_id,name,country,latitude,longitude
+SUT,Sutherland,South Africa,-32.40,20.67
+FAR,Faraoskop,South Africa,-32.13,18.62
+```
+and a second file called `individuals.csv`:
+
+```csv
+ind_id,name,organism,tissue,site_id
+SUT001,"Burial 1, Sk 1",human,tooth,SUT
+SUT002,"Burial 2, Sk 1",human,"petrous bone",SUT
+FAR001,"Burial 10, Sk 7",human,femur,FAR
+```
+
+We can then annotate according to CSVW by adding a file called `metadata.json`, or, as I would suggest in our case perhaps `poseidon-metadata.json`:
+
+```json=
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "tables": [
+        {
+            "url": "sites.csv"
+            "tableSchema" : {
+                "columns": [
+                    {
+                        "name" : "site_id"
+                    },
+                    {
+                        "name" : "country",
+                    },
+                    {
+                        "name" : "latitude",
+                        "datatype" : "number"
+                    },
+                    {
+                        "name" : "longitude",
+                        "datatype" : "number"
+                    }
+                ],
+                "primaryKey" : "site_id"
             }
-        ]
-    }
-
-This example shows that how a `poseidon.json` module defines other files that are specified using _relative paths_ from the location of the `poseidon.json` file. The layout of the poseidon module defined in this example would be:
-
-    my-module
-    ├── poseidon.json
-    ├── annot.csv
-    ├── README.md
-    ├── genotypes
-    │   ├── ind.txt
-    │   ├── snp.txt
-    │   ├── geno.txt
-    ├── complete-genome-data
-    │   ├── sample1.ranfa
-    │   ├── sample1_qual.ranfa
-    │   ├── sample2.ranfa
-    │   ├── sample2_qual.ranfa
-
-A Poseidon module definition file follows the schema defined in `poseidon-module-schema.json`, which also defines which fields are required or optional, and what type of genomic data can be included in which format.
-
-The idea behind defining modules via their `poseidon.json` file is to facilitate discovery of such modules in a directory tree. A tool combining datasets can search a directory tree for `poseidon.json` files and thereby immediately have access to multiple modules, ready to make queries across datasets and comparative analyses.
-
-## Required elements of a Poseidon Module
-
-As defined in the schema, at the root level, a `poseidon.json` file may have the following fields:
-
-### moduleName (required)
-A name of the module. Can be any string.
-
-### maintainer (required)
-An object with two elements, "name" and "email", as shown in the example above.
-
-### lastUpdate (required)
-The date of the last update of the module, formatted as YYYY-MM-DD.
-
-### version (required)
-A version for the module, following standard semantic versioning (such as "1.1.2"). This is important so that multiple modules with the same name but different versions can be maintained in a database.
-
-### description (required)
-A short description text for the module.
-
-### readme (optional)
-A relative path to a readme file describing more details about the module.
-
-### metaDataFile (optional)
-A relative path to the metadata file describing the individuals. This file must follow a separate schema defined below.
-
-### genomicData (optional)
-This is a JSON object with information about the genomic data contained in the module. The following fields are allowed:
-
-#### genotypeData
-This field is for genotyping data, i.e. information only on a given set of preselected variable positions in the human genome. This is itself a JSON object with three required fields "snpSet", "format", "files". 
-
-The "snpSet" field requires one of the currently allowed genotyping SNP sets:
-- "1240K": The snp set resulting from in-solution capture of the "1240K"-reagent defined in [Mathieson et al. 2015](https://www.nature.com/articles/nature16152)
-- "390K": The snp set resulting from in-solution capture of the "390K"-reagent defined in [Haak et al. 2015](https://www.nature.com/articles/nature14317)
-- "Affymetrix-HumanOrigins": The snp set used in the [Affymetrix HumanOrigins (R) Genotyping Array](http://www.affymetrix.com/support/technical/byproduct.affx?product=Axiom_GW_HuOrigin) described in [Patterson et al. 2012](https://www.genetics.org/content/192/3/1065) and with large data being published from in [Lazaridis et al. 2014](https://www.nature.com/articles/nature13673)
-
-#### completeGenomeData
-This is again a JSON object with two required fields: "freqSumFile", which is a relative path to a file in [freqSum format](https://rarecoal-docs.readthedocs.io/en/latest/rarecoal-tools.html) describing all variable positions in all individuals. The second field "bedFiles" is an array consisting of relative paths to bed files. Each bed file gives the precise genomic regions in which an individual could be called. The order of bed files is the same order as individuals listed in the freqSum file.
-
-Note that this setup is flexible as to which individuals have diploid genotypes, and which only haploid genotype calls. Both are possible in the freqSum format.
-
-More documentation on this to follow...
-
-# Metadata-Format
-... todo ... currently in the Google Doc on the poseidon anno file. Need to convert this into t CSV on the Web format.
+      }, {
+        "url": "individuals.csv"
+    }]
+}
+```
+ -->

@@ -1,4 +1,4 @@
-[![Travis-CI Build Status](https://travis-ci.org/poseidon-framework/poseidon-schema.svg?branch=master)](https://travis-ci.org/poseidon-framework/poseidon-schema)
+[![Travis-CI Build Status](https://travis-ci.org/poseidon-framework/poseidon-schema.svg?branch=master)](https://travis-ci.com/poseidon-framework/poseidon-schema)
 
 # Poseidon Framework - Draft
 

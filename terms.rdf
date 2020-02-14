@@ -24,34 +24,45 @@
     <!--
         Key Entities
     -->
-    <rdfs:Class rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#Package" dc:type="module">
-        <csvw:name xml:lang="en">"Package"</csvw:name>
+    <rdfs:Class rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#packageDefinition" dc:type="module">
+        <csvw:name xml:lang="en">"PackageDefinition"</csvw:name>
         <rdfs:comment rdf:parseType="Literal">
-            The class denoting an entire Poseidon package.
+            The class denoting a Poseidon package definition file.
         </rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
     </rdfs:Class>
 
-    <rdfs:Class rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#SiteTable" dc:type="module">
-        <csvw:name xml:lang="en">"SiteTable"</csvw:name>
+    <rdfs:Class rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#sitesTable" dc:type="module">
+        <csvw:name xml:lang="en">"SitesTable"</csvw:name>
         <rdfs:comment rdf:parseType="Literal">
             The class denoting the Poseidon Site Table
         </rdfs:comment>
-        <csvw:url>"siteTable.csv"</csvw:url>
+        <csvw:url>"sitesTable.csv"</csvw:url>
     </rdfs:Class>
 
-    <rdfs:Class rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#SampleTable" dc:type="module">
-        <csvw:name xml:lang="en">"SampleTable"</csvw:name>
+    <rdfs:Class rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#samplesTable" dc:type="module">
+        <csvw:name xml:lang="en">"SamplesTable"</csvw:name>
         <rdfs:comment rdf:parseType="Literal">
             The class denoting the Poseidon Sample Table
         </rdfs:comment>
-        <csvw:url>"sampleTable.csv"</csvw:url>
+        <csvw:url>"samplesTable.csv"</csvw:url>
     </rdfs:Class>
+
+    <!--
+        Top Level Properties
+    -->
+
+    <rdf:Property rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#readme">
+        <rdfs:comment rdf:parseType="Literal">
+            An optional readme file for the package
+        </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/about" />
+    </rdf:Property>
 
     <!--
         Reference properties (aka foreign keys)
     -->
-    <rdf:Property rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#SiteReference"
+    <rdf:Property rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#siteReference"
                   dc:type="reference-property">
         <rdfs:comment rdf:parseType="Literal">
             An identifier referencing a site by providing a foreign key into the SiteTable
@@ -62,7 +73,7 @@
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Foreign_key" />
     </rdf:Property>
 
-    <rdf:Property rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#SampleReference"
+    <rdf:Property rdf:about="http://w3id.org/poseidon/v1.0/terms.rdf#sampleReference"
                   dc:type="reference-property">
         <rdfs:comment rdf:parseType="Literal">
             An identifier referencing an Sample by providing a foreign key into the SampleTable

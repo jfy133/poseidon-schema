@@ -1,0 +1,13 @@
+{
+    "@context": ["http://www.w3.org/ns/csvw", {"@language": "en"}],
+    "dc:conformsTo": "http://poseidon.github.com/v1.0/poseidon-vocabulary.rdf#Package",
+    "dc:description": {
+        "dc:abstract": "Here goes a brief description of the package",
+        "dc:"
+    },
+    "dc:title": "My great package",
+    "dc:readme": "README.md",
+    "dc:contributor": "Charles Darwin",
+    "dc:modified": {"@value": "2020-02-13", "@type": "xsd:date"},
+    "tables": []
+}

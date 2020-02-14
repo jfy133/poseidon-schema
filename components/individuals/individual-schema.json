@@ -1,0 +1,125 @@
+{
+    "columns" : [
+        {
+            "name" : "Individual_ID",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Collection_ID",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Skeletal_Element",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Country",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Location",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Site",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Latitude",
+            "datatype" : "double"
+        },
+        {
+            "name" : "Longitude",
+            "datatype" : "double"
+        },
+        {
+            "name" : "Average_Date",
+            "datatype" : "nonNegativeInteger"
+        },
+        {
+            "name" : "Date_Earlier",
+            "datatype" : "nonNegativeInteger"
+        },
+        {
+            "name" : "Date_Later",
+            "datatype" : "nonNegativeInteger"
+        },
+        {
+            "name" : "Date_Type",
+            "datatype" : {
+                "base" : "string",
+                "format" : "C14|contextual|modern"
+            }
+        },
+        {
+            "name" : "Group_Name",
+            "datatype" : "string"
+        },
+        {
+            "name" : "Genetic_Sex",
+            "datatype" : {
+                "base" : "string",
+                "format" : "M|F|U"
+            }
+        },
+        {
+            "name" : "Nr_autosomal_SNPs",
+            "datatype" : "Integer"
+        },
+        {
+            "name" : "Coverage_1240K",
+            "datatype" : "Float"
+        },
+        {
+            "name" : "MT_Haplogroup",
+            "datatype" : "String"
+        },
+        {
+            "name" : "Y_Haplogroup",
+            "datatype" : "String"
+        },
+        {"name" : 
+            "%"endogenous,
+            "datatype" : "	Float"
+        },
+        {
+            "name" : "UDG",
+            "datatype" : "	String_Choice"
+        },
+        {
+            "name" : "Library_Built",
+            "datatype" : "String_Choice"
+        },
+        {
+            "name" : "Damage",
+            "datatype" : "	Float"
+        },
+        {
+            "name" : "Xcontam",
+            "datatype" : "	Float"
+        },
+        {
+            "name" : "Xcontam_stderr",
+            "datatype" : "Float"
+        },
+        {
+            "name" : "mtContam",
+            "datatype" : "Float"
+        },
+        {
+            "name" : "mtContam_stderr",
+            "datatype" : "Float"
+        },
+        {
+            "name" : "Primary_Contact",
+            "datatype" : "String"
+        },
+        {
+            "name" : "Publication_status",
+            "datatype" : "String"
+        },
+        {
+            "name" : "Note",
+            "datatype" : "String    ]"
+        },
+}

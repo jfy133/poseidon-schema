@@ -78,13 +78,13 @@
             "name" : "Y_Haplogroup",
             "datatype" : "String"
         },
-        {"name" : 
-            "%"endogenous,
-            "datatype" : "	Float"
+        {
+            "name" : "%-endogenous",
+            "datatype" : "Float"
         },
         {
             "name" : "UDG",
-            "datatype" : "	String_Choice"
+            "datatype" : "String_Choice"
         },
         {
             "name" : "Library_Built",
@@ -92,11 +92,11 @@
         },
         {
             "name" : "Damage",
-            "datatype" : "	Float"
+            "datatype" : "Float"
         },
         {
             "name" : "Xcontam",
-            "datatype" : "	Float"
+            "datatype" : "Float"
         },
         {
             "name" : "Xcontam_stderr",
@@ -120,6 +120,7 @@
         },
         {
             "name" : "Note",
-            "datatype" : "String    ]"
-        },
+            "datatype" : "String"
+        }
+        ]
 }

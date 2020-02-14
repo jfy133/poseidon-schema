@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/poseidon-framework/poseidon-schema.svg?branch=master)](https://travis-ci.org/poseidon-framework/poseidon-schema)
+
 The following information should eventually go into a proper documentation-repo, but for now we use this README to define the Poseidon format.
 
 # What is Poseidon?

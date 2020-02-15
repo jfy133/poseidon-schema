@@ -15,9 +15,5 @@
         "@id" : "#SamplesTableInfo",
         "@type" : "rdfs:Class",
         "rdfs:comment" : "The class denoting the Poseidon Sample Table description object"
-    }, {
-        "@id" : "#ID",
-        "@type" : "rdfs:Property",
-        "rdfs:range" : {"@id": "rdfs:Literal"}
     }]
 }

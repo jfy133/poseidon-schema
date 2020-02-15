@@ -1,6 +1,10 @@
 {
-    "@context": "https://w3id.org/poseidon/poseidon-context.jsonld",
-    "@type": "poseidon:PackageDefinition",
+    "@context": {
+        "csvw" : "http://www.w3.org/ns/csvw",
+        "dc" : "http://purl.org/dc/terms/",
+        "poseidon" : "https://w3id.org/poseidon/v1.0/terms.rdf.jsonld#"
+    },
+    "@type": "poseidon:PackageInfo",
     "@language" : "en",
     "dc:description": "Brief description of my package",
     "dc:title": "My great package",
@@ -9,7 +13,7 @@
         "dc:email" : "charles.darwin@beagle.org"
     },
     "dc:modified": {"@value": "2020-02-13", "@type": "xsd:date"},
-    "poseidon:readme" : "README.md",
+    "dc:license" : "CC-BY",
     "csvw:tables": [{
         "@type" : "poseidon:sitesTable",
         "csvw:url" : "sitesTable.csv",

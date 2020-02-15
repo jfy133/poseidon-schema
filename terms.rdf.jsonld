@@ -1,0 +1,23 @@
+{
+    "@context" : {
+        "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+        "@base" : "http://w3id.org/poseidon/v1.0/terms.rdf.jsonld"
+    },
+    "@graph" : [{
+        "@id" : "#PackageInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting a Poseidon package definition object"
+    }, {
+        "@id" : "#SitesTableInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting the Poseidon Site Table description object"
+    }, {
+        "@id" : "#SamplesTableInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting the Poseidon Sample Table description object"
+    }, {
+        "@id" : "#ID",
+        "@type" : "rdfs:Property",
+        "rdfs:range" : {"@id": "rdfs:Literal"}
+    }]
+}

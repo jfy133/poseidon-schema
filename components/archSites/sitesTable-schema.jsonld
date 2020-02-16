@@ -1,72 +1,61 @@
 {
-    "@context": {
-        "csvw" : "http://www.w3.org/ns/csvw/",
-        "dc" : "http://purl.org/dc/terms/",
-        "schema" : "http://schema.org",
-        "xsd" : "http://www.w3.org/2001/XMLSchema#",
-        "poseidon" : "https://w3id.org/poseidon/v1.0/terms.rdf.jsonld#"
-    },
+    "@context": ["http://www.w3.org/ns/csvw/"],
     "@type" : "poseidon:SitesTableInfo",
-    "csvw:columns" : [{
-        "csvw:name" : "ID",
-        "csvw:titles" : ["ID", "Site_ID"],
+    "columns" : [{
+        "name" : "ID",
+        "titles" : "ID",
         "dc:description" : "The ID of the site. Can be any alphanumeric string including - and _",
-        "csvw:datatype" : {
-            "csvw:base" : {"@id" : "xsd:string"},
-            "csvw:format" : "[a-zA-Z0-9_\\-]+"
+        "datatype" : {
+            "base" : "xsd:string",
+            "format" : "[a-zA-Z0-9_\\-]+"
         },
-        "csvw:propertyUrl" : {"@id" : "dc:identifier"},
-        "csvw:required" : true
+        "propertyUrl" : "dc:identifier",
+        "required" : true
     }, {
-        "csvw:name" : "SiteName",
-        "csvw:titles" : "SiteName",
+        "name" : "SiteName",
+        "titles" : "SiteName",
         "dc:description" : "The name of the site",
-        "csvw:datatype" : {"@id" : "xsd:string"},
-        "csvw:propertyUrl" : {"@id" : "schema:name"},
-        "csvw:required" : true
+        "datatype" : "xsd:string",
+        "propertyUrl" : "schema:name",
+        "required" : true
     }, {
-        "csvw:name" : "CountryCode",
-        "csvw:titles" : "CountryCode",
-        "dc:description" : "Three-Letter ISO-Countrycode of the country that the site is in. See https://countrycode.org",
-        "csvw:datatype" : {
-            "csvw:base" : {"@id" : "xsd:string"},
-            "csvw:format" : "[A-Z]{3}"
-        },
-        "csvw:propertyUrl" : {"@id" : "schema:addressCountry"},
-        "csvw:required" : true
+        "name" : "Country",
+        "titles" : "Country",
+        "dc:description" : "The Country that the site is in. Either given as name or (preferably) as URI (e.g. )",
+        "propertyUrl" : "schema:addressCountry",
+        "required" : true
     }, {
-        "csvw:name": "Province",
-        "csvw:titles": "Province",
-        "dc:description" : "The sub-national administrative region (e.g. Province) that the site is in",
-        "csvw:datatype" : {"@id" : "xsd:string"},
-        "csvw:propertyUrl" : {"@id" : "schema:name"}
+        "name": "Province",
+        "titles": "Province",
+        "dc:description" : "The sub-national administrative region (e.g. Province) that the site is in. Either given as Name or (preferably) as URI (e.g. )",
+        "propertyUrl" : "schema:addressRegion"
     }, {
-        "csvw:name": "Locality",
-        "csvw:titles": "Locality",
+        "name": "Locality",
+        "titles": "Locality",
         "dc:description" : "The nearest town or city of the site",
-        "csvw:datatype" : {"@id" : "xsd:string"},
-        "csvw:propertyUrl" : {"@id" : "schema:name"}
+        "propertyUrl" : "schema:addressLocality"
     }, {
-        "csvw:name": "Latitude",
-        "csvw:titles": "Latitude",
+        "name": "Latitude",
+        "titles": "Latitude",
         "dc:description" : "A latitude in the WGS 84 standard coordinate system (see https://en.wikipedia.org/wiki/World_Geodetic_System), specified as decimal number of degrees.",
-        "csvw:datatype" : {
-            "csvw:base": "decimal",
-            "csvw:minimum" : -90,
-            "csvw:maximum": 90
+        "datatype" : {
+            "base": "decimal",
+            "minimum" : -90,
+            "maximum": 90
         },
-        "csvw:propertyUrl" : {"@id" : "schema:latitude"},
-        "csvw:required" : true
+        "propertyUrl" : "schema:latitude",
+        "required" : true
     }, {
-        "csvw:name": "Longitude",
-        "csvw:titles": "Longitude",
+        "name": "Longitude",
+        "titles": "Longitude",
         "dc:description" : "A longitude in the WGS 84 standard coordinate system (see https://en.wikipedia.org/wiki/World_Geodetic_System), specified as decimal number of degrees.",
-        "csvw:datatype" : {
-            "csvw:base": "decimal",
-            "csvw:minimum" : -180,
-            "csvw:maximum": 180
+        "datatype" : {
+            "base": "decimal",
+            "minimum" : -180,
+            "maximum": 180
         },
-        "csvw:propertyUrl" : {"@id" : "schema:longitude"},
-        "csvw:required" : true
-    }]
+        "propertyUrl" : "schema:longitude",
+        "required" : true
+    }],
+    "primaryKey": "ID"
 }

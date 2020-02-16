@@ -15,5 +15,9 @@
         "@id" : "#SamplesTableInfo",
         "@type" : "rdfs:Class",
         "rdfs:comment" : "The class denoting the Poseidon Sample Table description object"
+    }, {
+        "@id" : "#poseidonCountry",
+        "@type" : "rdfs:Property",
+        "rdfs:comment": "the country (as IRI) or the ISO three-letter country code in which the site is"
     }]
 }

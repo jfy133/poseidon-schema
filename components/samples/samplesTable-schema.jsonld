@@ -1,0 +1,51 @@
+{
+    "@context" : ["http://www.w3.org/ns/csvw"],
+    "@type" : "http://w3id.org/poseidon/terms.rdf.jsonld#SamplesTableInfo",
+    "columns" : [
+        {
+            "name" : "ID",
+            "titles" : "ID",
+            "dc:description" : "Unique identifier for a sample. Can be alphanumeric and include - and _",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "dc:identifier",
+            "required" : true    
+        }, {
+            "name" : "SiteID",
+            "titles" : "SiteID",
+            "dc:description" : "Foreign Key into the Sites-Table. Gives the ID of the site from which the sample is.",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteID"
+        }
+        {
+            "name" : "CollectionID",
+            "titles" : "CollectionID",
+            "dc:description" : "Identifier for the sample used in the museum or archaeological/anthropological collection. This is usually different from the ID which is set by the laboratory analysing the sample.",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#collectionID"
+        },
+        {
+            "name" : "SkeletalElement",
+            "titles" : "SkeletalElement",
+            "dc:description" : "Name of the skeletal element analysed",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[Tooth|Petrous|OtherBone|OtherTissue]"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#tissueType"
+        }
+    ],
+    "primaryKey" : "ID",
+    "foreignKeys": [{
+        "columnReference": "SiteID",
+        "reference": {
+            "resource": "sites.csv",
+            "columnReference": "ID"
+        }
+    }]
+}

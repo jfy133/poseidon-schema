@@ -1,0 +1,19 @@
+        {
+            "name" : "Average_Date",
+            "datatype" : "nonNegativeInteger"
+        },
+        {
+            "name" : "Date_Earlier",
+            "datatype" : "nonNegativeInteger"
+        },
+        {
+            "name" : "Date_Later",
+            "datatype" : "nonNegativeInteger"
+        },
+        {
+            "name" : "Date_Type",
+            "datatype" : {
+                "base" : "string",
+                "format" : "C14|contextual|modern"
+            }
+        },

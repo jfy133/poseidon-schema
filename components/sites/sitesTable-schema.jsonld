@@ -1,6 +1,6 @@
 {
     "@context": ["http://www.w3.org/ns/csvw/"],
-    "@type" : "poseidon:SitesTableInfo",
+    "@type" : "http://w3id.org/poseidon/terms.rdf.jsonld#SitesTableInfo",
     "columns" : [{
         "name" : "ID",
         "titles" : "ID",

@@ -1,0 +1,55 @@
+{
+    "name" : "Genetic_Sex",
+    "datatype" : {
+        "base" : "string",
+        "format" : "M|F|U"
+    }
+},
+{
+    "name" : "Nr_autosomal_SNPs",
+    "datatype" : "Integer"
+},
+{
+    "name" : "Coverage_1240K",
+    "datatype" : "Float"
+},
+{
+    "name" : "MT_Haplogroup",
+    "datatype" : "String"
+},
+{
+    "name" : "Y_Haplogroup",
+    "datatype" : "String"
+},
+{
+    "name" : "%-endogenous",
+    "datatype" : "Float"
+},
+{
+    "name" : "UDG",
+    "datatype" : "String_Choice"
+},
+{
+    "name" : "Library_Built",
+    "datatype" : "String_Choice"
+},
+{
+    "name" : "Damage",
+    "datatype" : "Float"
+},
+{
+    "name" : "Xcontam",
+    "datatype" : "Float"
+},
+{
+    "name" : "Xcontam_stderr",
+    "datatype" : "Float"
+},
+{
+    "name" : "mtContam",
+    "datatype" : "Float"
+},
+{
+    "name" : "mtContam_stderr",
+    "datatype" : "Float"
+},

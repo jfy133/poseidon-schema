@@ -16,8 +16,14 @@
         "@type" : "rdfs:Class",
         "rdfs:comment" : "The class denoting the Poseidon Sample Table description object"
     }, {
-        "@id" : "#poseidonCountry",
+        "@id" : "#collectionID",
         "@type" : "rdfs:Property",
-        "rdfs:comment": "the country (as IRI) or the ISO three-letter country code in which the site is"
+        "rdfs:comment" : "The class denoting an Identifier for a sample used in the museum or archaeological/anthropological collection that the sample is from.",
+        "rdfs:range" : "xsd:string"
+    }, {
+        "@id" : "#tissueType",
+        "$type" : "rdfs:Property",
+        "rdfs:comment" : "Name of the tissue used for analysing the sample.",
+        "rdfs:range" : "xsd:string"
     }]
 }

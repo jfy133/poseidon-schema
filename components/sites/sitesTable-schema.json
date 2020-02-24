@@ -1,9 +1,9 @@
 {
     "@context": ["http://www.w3.org/ns/csvw/"],
-    "@type" : "http://w3id.org/poseidon/terms.rdf.jsonld#SitesTableInfo",
+    "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#SitesTableInfo",
     "columns" : [{
-        "name" : "ID",
-        "titles" : "ID",
+        "name" : "SiteID",
+        "titles" : "SiteID",
         "dc:description" : "The ID of the site. Can be any alphanumeric string including - and _",
         "datatype" : {
             "base" : "xsd:string",

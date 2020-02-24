@@ -1,0 +1,68 @@
+{
+    "@context" : {
+        "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+        "@base" : "http://w3id.org/poseidon/v1.0/terms.rdf.jsonld"
+    },
+    "@graph" : [{
+        "@id" : "#PackageInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting a Poseidon package definition object"
+    }, {
+        "@id" : "#SitesTableInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting the Poseidon Site Table description object"
+    }, {
+        "@id" : "#SamplesTableInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting the Poseidon Sample Table description object"
+    }, {
+        "@id" : "#DateTableInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting the Poseidon C14 Table description object"
+    }, {
+        "@id" : "#siteReference",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "A foreign key into the Sites table",
+        "rdfs:range" : "xsd:string"
+    }, {
+        "@id" : "#sampleReference",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "A foreign key into the Samples table",
+        "rdfs:range" : "xsd:string"
+    }, {
+        "@id" : "#collectionID",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "The class denoting an Identifier for a sample used in the museum or archaeological/anthropological collection that the sample is from.",
+        "rdfs:range" : "xsd:string"
+    }, {
+        "@id" : "#tissueType",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Name of the tissue used for analysing the sample.",
+        "rdfs:range" : "xsd:string"
+    }, {
+        "@id" : "#uncalDateBP",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Uncalibrated C14 date in years before 1950 (BP)",
+        "rdfs:range" : "xsd:nonNegativeInteger"
+    }, {
+        "@id" : "#calDateMedianBP",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Calbibrated C14 date median value in years before 1950 (BP)",
+        "rdfs:range" : "xsd:nonNegativeInteger"
+    }, {
+        "@id" : "#calDateLower2SigmaBP",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Lower end of 2-sigma range of calbibrated C14 date in years before 1950 (BP)",
+        "rdfs:range" : "xsd:nonNegativeInteger"
+    }, {
+        "@id" : "#calDateUpper2SigmaBP",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Upper end of 2-sigma range of calbibrated C14 date in years before 1950 (BP)",
+        "rdfs:range" : "xsd:nonNegativeInteger"
+    }, {
+        "@id" : "#dateType",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Type of the dating. Can be C14, contextual or modern",
+        "rdfs:range" : "xsd:string"
+    }]
+}

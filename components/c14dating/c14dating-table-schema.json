@@ -1,0 +1,65 @@
+{
+    "@context" : ["http://www.w3.org/ns/csvw"],
+    "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#DateTableInfo",
+    "tableSchema" :  {
+        "columns" : [
+            {
+                "name" : "DateID",
+                "titles" : "DateID",
+                "dc:description" : "ID of the date",
+                "datatype" : {
+                    "base" : "xsd:string",
+                    "format" : "[a-zA-Z0-9_\\-]+"
+                },
+                "propertyUrl" : "dc:identifier"
+            }, {
+                "name" : "SampleID",
+                "titles" : "SampleID",
+                "dc:description" : "Foreign Key into the Samples-Table. Gives the ID of the sample from which the sample is.",
+                "datatype" : {
+                    "base" : "xsd:string",
+                    "format" : "[a-zA-Z0-9_\\-]+"
+                },
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleReference"
+            }, {
+                "name" : "UncalDateBP",
+                "titles" : "UncalDateBP",
+                "datatype" : "nonNegativeInteger",
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#uncalDateBP"
+            }, {
+                "name" : "calDateMedianBP",
+                "titles" : "calDateMedianBP",
+                "datatype" : "nonNegativeInteger",
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#calDateMedianBP"
+            }, {
+                "name" : "calDateLower2SigmaBP",
+                "titles" : "calDateLower2SigmaBP",
+                "datatype" : "nonNegativeInteger",
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#calDateLower2SigmaBP",
+                "required" : true
+            }, {
+                "name" : "calDateUpper2SigmaBP",
+                "titles" : "calDateUpper2SigmaBP",
+                "datatype" : "nonNegativeInteger",
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#calDateUpper2SigmaBP",
+                "required" : true
+            }, {
+                "name" : "dateType",
+                "titles" : "dateType",
+                "datatype" : {
+                    "base" : "string",
+                    "format" : "C14|contextual|modern"
+                },
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#dateType",
+            }
+        ],
+        "primaryKey" : "DateID",
+        "foreignKeys": [{
+            "columnReference": "SampleID",
+            "reference": {
+                "resource": "samples.csv",
+                "columnReference": "SampleID"
+            }
+        }]
+    }
+}

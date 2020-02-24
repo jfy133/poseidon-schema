@@ -50,7 +50,7 @@
                     "base" : "string",
                     "format" : "C14|contextual|modern"
                 },
-                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#dateType",
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#dateType"
             }
         ],
         "primaryKey" : "DateID",

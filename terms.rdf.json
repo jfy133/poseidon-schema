@@ -60,6 +60,11 @@
         "rdfs:comment" : "Upper bound of contextual date of the sample, in BP",
         "rdfs:range" : "xsd:nonNegativeInteger"
     }, {
+        "@id" : "#C14labName",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Name of the lab performing the C14 dating",
+        "rdfs:range" : "xsd:string"
+    }, {
         "@id" : "#C14uncalDateBP",
         "@type" : "rdfs:Property",
         "rdfs:comment" : "Uncalibrated C14 date in years before 1950 (BP)",
@@ -89,5 +94,7 @@
         "@type" : "rdfs:Property",
         "rdfs:comment" : "Optional note for the C14 date",
         "rdfs:range" : "xsd:string"
+    }, {
+        "seqLabName", "libraryType", "captureType", "captureNote"
     }]
 }

@@ -1,55 +1,170 @@
 {
-    "name" : "Genetic_Sex",
-    "datatype" : {
-        "base" : "string",
-        "format" : "M|F|U"
+    "@context" : ["http://www.w3.org/ns/csvw"],
+    "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#DateTableInfo",
+    "tableSchema" :  {
+        "columns" : [{
+            "name" : "SequencingLabID",
+            "titles" : "SequencingLabID",
+            "dc:description" : "ID of the lab generating the sequencing data",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "dc:identifier",
+            "required" : true
+        }, {
+            "name" : "SampleID",
+            "titles" : "SampleID",
+            "dc:description" : "Foreign Key into the Samples-Table. Gives the ID of the sample from which the sample is.",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleReference",
+            "required" : true
+        }, {
+            "name" : "SeqLabName",
+            "titles" : "SeqLabName",
+            "dc:description" : "Name of the lab performing the Sequencing",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#seqLabName",
+            "required" : true
+        }, {
+            "name" : "LibraryType",
+            "titles" : "LibraryType",
+            "dc:description" : "DNA Library construction (Non-UDG, UDG-half, UDG-full, Single-Stranded-Non-UDG, Multiple)",
+            "datatype" : {
+                "base" : "string",
+                "format" : "on-UDG|UDG-half|UDG-full|Single-Stranded-Non-UDG|Multiple"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#libraryType",
+            "required" : true
+        }, {
+            "name" : "CaptureType",
+            "titles" : "CaptureType",
+            "dc:description" : "Type of Capture (NoCapture, 1240Kcapture, MTcapture, OtherCapture). If not given, assume NoCapture",
+            "datatype" : {
+                "base" : "string",
+                "format" : "NoCapture|1240Kcapture|MTcapture|OtherCapture"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#captureType"
+        }, {
+            "name" : "CaptureNote",
+            "titles" : "CaptureNote",
+            "dc:description" : "Note describing the capture, in particular of CaptureType was \"OtherCapture\"",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#captureNote"
+        }, {
+            "name" : "NrReadsSequenced",
+            "titles" : "NrReadsSequenced",
+            "dc:description" : "Number of raw read or read-pairs sequenced",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrReadsSequenced",
+            "required" : true
+        }, {
+            "name" : "ReferenceGenome",
+            "titles" : "ReferenceGenome",
+            "dc:description" : "Name of reference genome. If Human, use HG19 or HG38.",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#referenceGenome",
+            "required" : true
+        }, {
+            "name" : "NrReadsMapped",
+            "titles" : "NrReadsMapped",
+            "dc:description" : "Number of reads mapped to the reference genome.",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrReadsMapped",
+            "required" : true
+        }, {
+            "name" : "NrReadsMappedQF30",
+            "titles" : "NrReadsMappedQF30",
+            "dc:description" : "Number of reads mapped to the reference genome, filtered for mapping quality <=30",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrReadsMappedQF30"
+        }, {
+            "name" : "NrReadsMappedUnique",
+            "titles" : "NrReadsMappedUnique",
+            "dc:description" : "Number of unique reads mapped to the reference genome.",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrReadsMappedUnique",
+            "required" : true
+        }, {
+            "name" : "NrReadsMappedUniqueQF30",
+            "titles" : "NrReadsMappedUniqueQF30",
+            "dc:description" : "Number of unique reads mapped to the reference genome, filtered for mapping quality >= 30",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrReadsMappedUniqueQF30"
+        }, {
+            "name" : "frac5pCT",
+            "titles" : "frac5pCT",
+            "dc:description" : "Fraction of reads with C->T substitutions at the 5p end of the read. Used as a proxy for post-mortem DNA damage",
+            "datatype" : {
+                "base": "decimal",
+                "minimum" : 0,
+                "maximum": 1
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#frac5pCT"
+        }, {
+            "name" : "frac3pGA",
+            "titles" : "frac3pGA",
+            "dc:description" : "Fraction of reads with G->A substitutions at the 3p end of the read. Used as a proxy for post-mortem DNA damage",
+            "datatype" : {
+                "base": "decimal",
+                "minimum" : 0,
+                "maximum": 1
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#frac5pCT"
+        }, {
+            "name" : "fracContam",
+            "titles" : "fracContam",
+            "dc:description" : "Estimate for the library contamination",
+            "datatype" : {
+                "base": "decimal",
+                "minimum" : 0,
+                "maximum": 1
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#fracContam"
+        }, {
+            "name" : "contamNote",
+            "titles" : "contamNote",
+            "dc:description" : "Optional note for how the contamination was estimated",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contamNote"
+        }, {
+            "name" : "geneticSex",
+            "titles" : "geneticSex",
+            "dc:description" : "Inferred sex genotype (XX, XY, Other)",
+            "datatype" : {
+                "base" : "string",
+                "format" : "XX|XY|Other"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#geneticSex"
+        }, {
+            "name" : "MThaplotype",
+            "titles" : "MThaplotype",
+            "dc:description" : "Mitochondrial haplotype",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#mtHaplotype"
+        }, {
+            "name" : "Yhaplotype",
+            "titles" : "Yhaplotype",
+            "dc:description" : "Y chromosome haplotype",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#yHaplotype"
+        }, {
+            "name" : "seqNote",
+            "titles" : "seqNote",
+            "dc:description" : "Optional general note for the sequencing data",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#seqNote"
+        }],
+        "primaryKey" : "SequencingLabID",
+        "foreignKeys": [{
+            "columnReference": "SampleID",
+            "reference": {
+                "resource": "samples.csv",
+                "columnReference": "SampleID"
+            }
+        }]
     }
-},
-{
-    "name" : "Nr_autosomal_SNPs",
-    "datatype" : "Integer"
-},
-{
-    "name" : "Coverage_1240K",
-    "datatype" : "Float"
-},
-{
-    "name" : "MT_Haplogroup",
-    "datatype" : "String"
-},
-{
-    "name" : "Y_Haplogroup",
-    "datatype" : "String"
-},
-{
-    "name" : "%-endogenous",
-    "datatype" : "Float"
-},
-{
-    "name" : "UDG",
-    "datatype" : "String_Choice"
-},
-{
-    "name" : "Library_Built",
-    "datatype" : "String_Choice"
-},
-{
-    "name" : "Damage",
-    "datatype" : "Float"
-},
-{
-    "name" : "Xcontam",
-    "datatype" : "Float"
-},
-{
-    "name" : "Xcontam_stderr",
-    "datatype" : "Float"
-},
-{
-    "name" : "mtContam",
-    "datatype" : "Float"
-},
-{
-    "name" : "mtContam_stderr",
-    "datatype" : "Float"
-},
+}

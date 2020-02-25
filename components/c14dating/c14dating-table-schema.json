@@ -4,9 +4,9 @@
     "tableSchema" :  {
         "columns" : [
             {
-                "name" : "DateID",
-                "titles" : "DateID",
-                "dc:description" : "ID of the date",
+                "name" : "C14LabID",
+                "titles" : "C14LabID",
+                "dc:description" : "Lab ID of the date",
                 "datatype" : {
                     "base" : "xsd:string",
                     "format" : "[a-zA-Z0-9_\\-]+"
@@ -22,38 +22,48 @@
                 },
                 "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleReference"
             }, {
-                "name" : "UncalDateBP",
-                "titles" : "UncalDateBP",
+                "name" : "C14uncalDateBP",
+                "titles" : "C14uncalDateBP",
                 "datatype" : "nonNegativeInteger",
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#uncalDateBP"
+                "dc:description" : "uncalibrated date measurement from C14",
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#C14uncalDateBP",
+                "required" : true
             }, {
-                "name" : "calDateMedianBP",
-                "titles" : "calDateMedianBP",
+                "name" : "C14calDateMedianBP",
+                "titles" : "C14calDateMedianBP",
+                "dc:description" : "(Optional) median calibrated date in BP",
                 "datatype" : "nonNegativeInteger",
-                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#calDateMedianBP"
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#C14calDateMedianBP"
             }, {
-                "name" : "calDateLower2SigmaBP",
+                "name" : "C14calDateLower2SigmaBP",
                 "titles" : "calDateLower2SigmaBP",
+                "dc:description" : "(Optional) lower end of 2sigma range of calibrated date in BP",
                 "datatype" : "nonNegativeInteger",
-                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#calDateLower2SigmaBP",
-                "required" : true
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#C14calDateLower2SigmaBP"
             }, {
-                "name" : "calDateUpper2SigmaBP",
+                "name" : "C14calDateUpper2SigmaBP",
                 "titles" : "calDateUpper2SigmaBP",
+                "dc:description" : "(Optional) upper end of 2sigma range of calibrated date in BP",
                 "datatype" : "nonNegativeInteger",
-                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#calDateUpper2SigmaBP",
-                "required" : true
+                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#C14calDateUpper2SigmaBP"
             }, {
-                "name" : "dateType",
-                "titles" : "dateType",
+                "name" : "C14dateType",
+                "titles" : "C14dateType",
+                "dc:description" : "Can be either \"direct\" or \"indirect\" (e.g. through charcoal at the site)",
                 "datatype" : {
                     "base" : "string",
-                    "format" : "C14|contextual|modern"
+                    "format" : "direct|indirect"
                 },
-                "propertyUrl": "http://w3id.org/poseidon/terms.rdf.jsonld#dateType"
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#C14dateType"
+            }, {
+                "name" : "C14note",
+                "titles" : "C14note",
+                "dc:description" : "Optional note for the C14 date",
+                "datatype" : "string",
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#C14note"
             }
         ],
-        "primaryKey" : "DateID",
+        "primaryKey" : "C14LabID",
         "foreignKeys": [{
             "columnReference": "SampleID",
             "reference": {

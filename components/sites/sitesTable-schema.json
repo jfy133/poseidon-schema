@@ -56,6 +56,11 @@
         },
         "propertyUrl" : "schema:longitude",
         "required" : true
+    }, {
+        "name": "SiteNote",
+        "titles": "SiteNote",
+        "dc:description" : "(Optional) note for the site",
+        "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteNote"
     }],
     "primaryKey": "ID"
 }

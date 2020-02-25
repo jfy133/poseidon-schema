@@ -21,13 +21,15 @@
                     "base" : "xsd:string",
                     "format" : "[a-zA-Z0-9_\\-]+"
                 },
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteReference"
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteReference",
+                "required" : true
             }, {
                 "name" : "CollectionID",
                 "titles" : "CollectionID",
                 "dc:description" : "Identifier for the sample used in the museum or archaeological/anthropological collection. This is usually different from the ID which is set by the laboratory analysing the sample.",
                 "datatype" : "string",
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#collectionID"
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#collectionID",
+                "required" : true
             }, {
                 "name" : "SkeletalElement",
                 "titles" : "SkeletalElement",
@@ -36,7 +38,26 @@
                     "base" : "xsd:string",
                     "format" : "[Tooth|Petrous|OtherBone|OtherTissue]"
                 },
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#tissueType"
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#tissueType",
+                "required" : true
+            }, {
+                "name" : "ContextualDateLower",
+                "titles" : "ContextualDateLower",
+                "dc:description" : "Lower bound of contextual date of the sample, in BP",
+                "datatype" : "nonNegativeInteger",
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateLower"
+            }, {
+                "name" : "ContextualDateUpper",
+                "titles" : "ContextualDateUpper",
+                "dc:description" : "Upper bound of contextual date of the sample, in BP",
+                "datatype" : "nonNegativeInteger",
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateUpper"
+            }, {
+                "name" : "SampleNote",
+                "titles" : "SampleNote",
+                "dc:description" : "(Optional) note for the sample",
+                "datatype" : "string",
+                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleNote"
             }
         ],
         "primaryKey" : "SampleID",

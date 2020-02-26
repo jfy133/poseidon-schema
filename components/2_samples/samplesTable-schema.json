@@ -53,6 +53,10 @@
                 "datatype" : "nonNegativeInteger",
                 "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateUpper"
             }, {
+                "name" : "ArchaeologicalCulture"
+            }, {
+                "name" : "GroupLabel"
+            }, {
                 "name" : "SampleNote",
                 "titles" : "SampleNote",
                 "dc:description" : "(Optional) note for the sample",

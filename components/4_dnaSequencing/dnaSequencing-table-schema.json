@@ -1,6 +1,6 @@
 {
     "@context" : ["http://www.w3.org/ns/csvw"],
-    "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#DateTableInfo",
+    "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#SeqTableInfo",
     "tableSchema" :  {
         "columns" : [{
             "name" : "SequencingLabID",
@@ -95,6 +95,24 @@
             "datatype" : "nonNegativeInteger",
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrReadsMappedUniqueQF30"
         }, {
+            "name" : "rawReadsRepository",
+            "titles" : "rawReadsRepository",
+            "dc:description" : "Repository for sequencing data. Can be \"ENA\" or \"SRA\"",
+            "datatype" : {
+                "base" : "string",
+                "format" : "ENA|SRA"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#rawReadsRepository"
+        }, {
+            "name" : "rawReadsAccessionNr",
+            "titles" : "rawReadsAccessionNr",
+            "dc:description" : "Accession number to raw read files and/or alignments",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[A-Z0-9]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#rawReadsAccessionNr"
+        }, {
             "name" : "frac5pCT",
             "titles" : "frac5pCT",
             "dc:description" : "Fraction of reads with C->T substitutions at the 5p end of the read. Used as a proxy for post-mortem DNA damage",
@@ -113,7 +131,7 @@
                 "minimum" : 0,
                 "maximum": 1
             },
-            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#frac5pCT"
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#frac3pGA"
         }, {
             "name" : "fracContam",
             "titles" : "fracContam",
@@ -143,13 +161,19 @@
             "name" : "MThaplotype",
             "titles" : "MThaplotype",
             "dc:description" : "Mitochondrial haplotype",
-            "datatype" : "string",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[A-Z0-0\-]+"
+            },
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#mtHaplotype"
         }, {
             "name" : "Yhaplotype",
             "titles" : "Yhaplotype",
             "dc:description" : "Y chromosome haplotype",
-            "datatype" : "string",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[A-Z0-0\-]+"
+            },
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#yHaplotype"
         }, {
             "name" : "seqNote",

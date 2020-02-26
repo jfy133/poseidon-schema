@@ -25,7 +25,7 @@
             "titles" : "C14labName",
             "dc:description" : "Name of the lab performing the C14 dating",
             "datatype" : "string",
-            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#labName"
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#C14labName"
         }, {
             "name" : "C14uncalDateBP",
             "titles" : "C14uncalDateBP",

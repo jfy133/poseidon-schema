@@ -104,9 +104,10 @@
             },
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#rawReadsRepository"
         }, {
-            "name" : "rawReadsAccessionNr",
-            "titles" : "rawReadsAccessionNr",
-            "dc:description" : "Accession number to raw read files and/or alignments",
+            "name" : "rawReadsAccessionNrs",
+            "titles" : "rawReadsAccessionNrs",
+            "dc:description" : "Accession number(s) to raw read files and/or alignments",
+            "separator" : ";",
             "datatype" : {
                 "base" : "string",
                 "format" : "[A-Z0-9]+"
@@ -181,6 +182,16 @@
             "dc:description" : "Optional general note for the sequencing data",
             "datatype" : "string",
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#seqNote"
+        }, {
+            "name" : "Source",
+            "titles" : "Source",
+            "dc:description" : "BibTEX key(s) for bibliographical source(s)",
+            "separator" : ";",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#source"
         }],
         "primaryKey" : "SequencingLabID",
         "foreignKeys": [{

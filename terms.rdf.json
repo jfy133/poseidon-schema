@@ -18,6 +18,11 @@
         "rdfs:comment" : "(Optional) note for the site",
         "rdfs:range" : "xsd:string"
     }, {
+        "@id" : "#source",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "BibTEX key(s) for bibliographical source(s)",
+        "rdfs:range" : "xsd:string"
+    }, {
         "@id" : "#SamplesTableInfo",
         "@type" : "rdfs:Class",
         "rdfs:comment" : "The class denoting the Poseidon Sample Table description object"

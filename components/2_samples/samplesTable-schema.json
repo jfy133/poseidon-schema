@@ -2,68 +2,76 @@
     "@context" : ["http://www.w3.org/ns/csvw"],
     "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#SamplesTableInfo",
     "tableSchema" :  {
-        "columns" : [
-            {
-                "name" : "SampleID",
-                "titles" : "SampleID",
-                "dc:description" : "Unique identifier for a sample. Can be alphanumeric and include - and _",
-                "datatype" : {
-                    "base" : "xsd:string",
-                    "format" : "[a-zA-Z0-9_\\-]+"
-                },
-                "propertyUrl" : "dc:identifier",
-                "required" : true    
-            }, {
-                "name" : "SiteID",
-                "titles" : "SiteID",
-                "dc:description" : "Foreign Key into the Sites-Table. Gives the ID of the site from which the sample is.",
-                "datatype" : {
-                    "base" : "xsd:string",
-                    "format" : "[a-zA-Z0-9_\\-]+"
-                },
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteReference",
-                "required" : true
-            }, {
-                "name" : "CollectionID",
-                "titles" : "CollectionID",
-                "dc:description" : "Identifier for the sample used in the museum or archaeological/anthropological collection. This is usually different from the ID which is set by the laboratory analysing the sample.",
-                "datatype" : "string",
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#collectionID",
-                "required" : true
-            }, {
-                "name" : "SkeletalElement",
-                "titles" : "SkeletalElement",
-                "dc:description" : "Name of the skeletal element analysed",
-                "datatype" : {
-                    "base" : "xsd:string",
-                    "format" : "[Tooth|Petrous|OtherBone|OtherTissue]"
-                },
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#tissueType",
-                "required" : true
-            }, {
-                "name" : "ContextualDateLower",
-                "titles" : "ContextualDateLower",
-                "dc:description" : "Lower bound of contextual date of the sample, in BP",
-                "datatype" : "nonNegativeInteger",
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateLower"
-            }, {
-                "name" : "ContextualDateUpper",
-                "titles" : "ContextualDateUpper",
-                "dc:description" : "Upper bound of contextual date of the sample, in BP",
-                "datatype" : "nonNegativeInteger",
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateUpper"
-            }, {
-                "name" : "ArchaeologicalCulture"
-            }, {
-                "name" : "GroupLabel"
-            }, {
-                "name" : "SampleNote",
-                "titles" : "SampleNote",
-                "dc:description" : "(Optional) note for the sample",
-                "datatype" : "string",
-                "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleNote"
-            }
-        ],
+        "columns" : [{
+            "name" : "SampleID",
+            "titles" : "SampleID",
+            "dc:description" : "Unique identifier for a sample. Can be alphanumeric and include - and _",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "dc:identifier",
+            "required" : true    
+        }, {
+            "name" : "SiteID",
+            "titles" : "SiteID",
+            "dc:description" : "Foreign Key into the Sites-Table. Gives the ID of the site from which the sample is.",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteReference",
+            "required" : true
+        }, {
+            "name" : "CollectionID",
+            "titles" : "CollectionID",
+            "dc:description" : "Identifier for the sample used in the museum or archaeological/anthropological collection. This is usually different from the ID which is set by the laboratory analysing the sample.",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#collectionID",
+            "required" : true
+        }, {
+            "name" : "SkeletalElement",
+            "titles" : "SkeletalElement",
+            "dc:description" : "Name of the skeletal element analysed",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[Tooth|Petrous|OtherBone|OtherTissue]"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#tissueType",
+            "required" : true
+        }, {
+            "name" : "ContextualDateLower",
+            "titles" : "ContextualDateLower",
+            "dc:description" : "Lower bound of contextual date of the sample, in BP",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateLower"
+        }, {
+            "name" : "ContextualDateUpper",
+            "titles" : "ContextualDateUpper",
+            "dc:description" : "Upper bound of contextual date of the sample, in BP",
+            "datatype" : "nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateUpper"
+        }, {
+            "name" : "ArchaeologicalCulture"
+        }, {
+            "name" : "GroupLabel"
+        }, {
+            "name" : "SampleNote",
+            "titles" : "SampleNote",
+            "dc:description" : "(Optional) note for the sample",
+            "datatype" : "string",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleNote"
+        }, {
+            "name" : "Source",
+            "titles" : "Source",
+            "dc:description" : "BibTEX key(s) for bibliographical source(s)",
+            "separator" : ";",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#source"
+        }],
         "primaryKey" : "SampleID",
         "foreignKeys": [{
             "columnReference": "SiteID",

@@ -21,13 +21,13 @@
     }, {
         "name" : "Country",
         "titles" : "Country",
-        "dc:description" : "The Country that the site is in. Either given as name or (preferably) as URI (e.g. )",
+        "dc:description" : "The Country that the site is in. Either given as name or (preferably) as URI using e.g. the geonames database or WikiData.",
         "propertyUrl" : "schema:addressCountry",
         "required" : true
     }, {
         "name": "Province",
         "titles": "Province",
-        "dc:description" : "The sub-national administrative region (e.g. Province) that the site is in. Either given as Name or (preferably) as URI (e.g. )",
+        "dc:description" : "The sub-national administrative region (e.g. Province) that the site is in. Either given as Name or (preferably) as URI ",
         "propertyUrl" : "schema:addressRegion"
     }, {
         "name": "Locality",
@@ -61,6 +61,16 @@
         "titles": "SiteNote",
         "dc:description" : "(Optional) note for the site",
         "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteNote"
+    }, {
+        "name" : "Source",
+        "titles" : "Source",
+        "dc:description" : "BibTEX key(s) for bibliographical source(s)",
+        "separator" : ";",
+        "datatype" : {
+            "base" : "string",
+            "format" : "[a-zA-Z0-9_\\-]+"
+        },
+        "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#source"
     }],
     "primaryKey": "ID"
 }

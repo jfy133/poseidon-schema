@@ -85,6 +85,16 @@
             "dc:description" : "Optional Note for genotyping",
             "datatype" : "xsd:string",
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#genotypingNote"
+        }, {
+            "name" : "Source",
+            "titles" : "Source",
+            "dc:description" : "BibTEX key(s) for bibliographical source(s)",
+            "separator" : ";",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#source"
         }],
         "primaryKey" : "GenotypingID",
         "foreignKeys": [{

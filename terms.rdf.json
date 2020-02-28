@@ -52,6 +52,16 @@
         "rdfs:comment" : "Upper bound of contextual date of the sample, in BP",
         "rdfs:range" : "xsd:nonNegativeInteger"
     }, {
+        "@id" : "#archaeologicalCulture",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Terms that describe the archaeological culture",
+        "rdfs:range" : "xsd:string"
+    }, {
+        "@id" : "#groupLabel",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "A label used to group this sample with other samples",
+        "rdfs:range" : "xsd:string"
+    }, {
         "@id" : "#sampleNote",
         "@type" : "rdfs:Property",
         "rdfs:comment" : "(Optional) note for the sample",

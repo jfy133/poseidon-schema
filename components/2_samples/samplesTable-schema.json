@@ -52,9 +52,21 @@
             "datatype" : "nonNegativeInteger",
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#contextualDateUpper"
         }, {
-            "name" : "ArchaeologicalCulture"
+            "name" : "ArchaeologicalCulture",
+            "titles" : "ArchaeologicalCulture",
+            "dc:description" : "Terms that describe the archaeological culture",
+            "datatype" : "string",
+            "separator" : ";",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#archaeologicalCulture"
         }, {
-            "name" : "GroupLabel"
+            "name" : "GroupLabel",
+            "titles" : "GroupLabel",
+            "dc:description" : "A label used to group this sample with other samples",
+            "datatype" : {
+                "base" : "string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#groupLabel"
         }, {
             "name" : "SampleNote",
             "titles" : "SampleNote",

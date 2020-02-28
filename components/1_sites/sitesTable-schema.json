@@ -19,19 +19,23 @@
         "propertyUrl" : "schema:name",
         "required" : true
     }, {
-        "name" : "Country",
-        "titles" : "Country",
-        "dc:description" : "The Country that the site is in. Either given as name or (preferably) as URI using e.g. the geonames database or WikiData.",
+        "name" : "CountryCode",
+        "titles" : "CountryCode",
+        "dc:description" : "The Country ISO three-letter code that the site is in",
         "propertyUrl" : "schema:addressCountry",
+        "datatype" : {
+            "base" : "string",
+            "format" : "[A-Z]{3}"
+        },
         "required" : true
     }, {
-        "name": "Province",
-        "titles": "Province",
-        "dc:description" : "The sub-national administrative region (e.g. Province) that the site is in. Either given as Name or (preferably) as URI ",
+        "name": "ProvinceName",
+        "titles": "ProvinceName",
+        "dc:description" : "The sub-national administrative region (e.g. Province) that the site is in.",
         "propertyUrl" : "schema:addressRegion"
     }, {
-        "name": "Locality",
-        "titles": "Locality",
+        "name": "LocalityName",
+        "titles": "LocalityName",
         "dc:description" : "The nearest town or city of the site",
         "propertyUrl" : "schema:addressLocality"
     }, {

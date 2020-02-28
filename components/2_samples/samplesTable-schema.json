@@ -23,6 +23,15 @@
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#siteReference",
             "required" : true
         }, {
+            "name" : "IndividualID",
+            "titles" : "IndividualID",
+            "dc:description" : "Identifier for the individual if the sample. Used to mark if two samples come from the same individual",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[a-zA-Z0-9_\\-]+"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#individualID"
+        }, {
             "name" : "CollectionID",
             "titles" : "CollectionID",
             "dc:description" : "Identifier for the sample used in the museum or archaeological/anthropological collection. This is usually different from the ID which is set by the laboratory analysing the sample.",

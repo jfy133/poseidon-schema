@@ -35,7 +35,7 @@
             "dc:description" : "DNA Library construction (Non-UDG, UDG-half, UDG-full, Single-Stranded-Non-UDG, Multiple)",
             "datatype" : {
                 "base" : "string",
-                "format" : "on-UDG|UDG-half|UDG-full|Single-Stranded-Non-UDG|Multiple"
+                "format" : "non-UDG|UDG-half|UDG-full|Single-Stranded-Non-UDG|Multiple"
             },
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#libraryType",
             "required" : true

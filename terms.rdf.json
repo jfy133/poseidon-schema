@@ -91,6 +91,11 @@
         "rdfs:comment" : "Uncalibrated C14 date in years before 1950 (BP)",
         "rdfs:range" : "xsd:nonNegativeInteger"
     }, {
+        "@id" : "#C14uncalDateErrBP",
+        "@type" : "rdfs:Property",
+        "rdfs:comment" : "Uncalibrated C14 date error in years before 1950 (BP)",
+        "rdfs:range" : "xsd:nonNegativeInteger"
+    }, {
         "@id" : "#C14calDateMedianBP",
         "@type" : "rdfs:Property",
         "rdfs:comment" : "Calbibrated C14 date median value in years before 1950 (BP)",

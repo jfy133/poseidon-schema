@@ -34,6 +34,13 @@
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#C14uncalDateBP",
             "required" : true
         }, {
+            "name" : "C14uncalDateErrBP",
+            "titles" : "C14uncalDateErrBP",
+            "datatype" : "nonNegativeInteger",
+            "dc:description" : "uncalibrated date measurement error from C14",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#C14uncalDateErrBP",
+            "required" : true
+        }, {
             "name" : "C14calDateMedianBP",
             "titles" : "C14calDateMedianBP",
             "dc:description" : "(Optional) median calibrated date in BP",

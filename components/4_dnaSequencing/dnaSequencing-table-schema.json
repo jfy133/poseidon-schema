@@ -164,7 +164,7 @@
             "dc:description" : "Mitochondrial haplotype",
             "datatype" : {
                 "base" : "string",
-                "format" : "[A-Z0-0\-]+"
+                "format" : "[A-Z0-0\\-]+"
             },
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#mtHaplotype"
         }, {
@@ -173,7 +173,7 @@
             "dc:description" : "Y chromosome haplotype",
             "datatype" : {
                 "base" : "string",
-                "format" : "[A-Z0-0\-]+"
+                "format" : "[A-Z0-0…\\-]+"
             },
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#yHaplotype"
         }, {

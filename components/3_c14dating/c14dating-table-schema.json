@@ -12,14 +12,14 @@
             },
             "propertyUrl" : "dc:identifier"
         }, {
-            "name" : "SampleID",
-            "titles" : "SampleID",
-            "dc:description" : "Foreign Key into the Samples-Table. Gives the ID of the sample from which the sample is.",
+            "name" : "IndividualID",
+            "titles" : "IndividualID",
+            "dc:description" : "Foreign Key into the Individuals-Table. Gives the ID of the individual for which the date holds",
             "datatype" : {
                 "base" : "xsd:string",
                 "format" : "[a-zA-Z0-9_\\-]+"
             },
-            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleReference"
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#individualReference"
         }, {
             "name" : "C14labName",
             "titles" : "C14labName",
@@ -86,10 +86,10 @@
         }],
         "primaryKey" : "C14LabID",
         "foreignKeys": [{
-            "columnReference": "SampleID",
+            "columnReference": "IndividualID",
             "reference": {
-                "resource": "samples.csv",
-                "columnReference": "SampleID"
+                "resource": "individuals.csv",
+                "columnReference": "IndividualID"
             }
         }]
     }

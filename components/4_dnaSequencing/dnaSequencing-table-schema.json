@@ -13,14 +13,14 @@
             "propertyUrl" : "dc:identifier",
             "required" : true
         }, {
-            "name" : "SampleID",
-            "titles" : "SampleID",
-            "dc:description" : "Foreign Key into the Samples-Table. Gives the ID of the sample from which the sample is.",
+            "name" : "IndividualID",
+            "titles" : "IndividualID",
+            "dc:description" : "Foreign Key into the Individuals-Table. Gives the ID of the individual that is analysed.",
             "datatype" : {
                 "base" : "xsd:string",
                 "format" : "[a-zA-Z0-9_\\-]+"
             },
-            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#sampleReference",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#individualReference",
             "required" : true
         }, {
             "name" : "SeqLabName",
@@ -28,6 +28,16 @@
             "dc:description" : "Name of the lab performing the Sequencing",
             "datatype" : "string",
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#seqLabName",
+            "required" : true
+        }, {
+            "name" : "SkeletalElement",
+            "titles" : "SkeletalElement",
+            "dc:description" : "Name of the skeletal element analysed",
+            "datatype" : {
+                "base" : "xsd:string",
+                "format" : "[Tooth|Petrous|OtherBone|OtherTissue]"
+            },
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#tissueType",
             "required" : true
         }, {
             "name" : "LibraryType",
@@ -195,10 +205,10 @@
         }],
         "primaryKey" : "SequencingLabID",
         "foreignKeys": [{
-            "columnReference": "SampleID",
+            "columnReference": "IndividualID",
             "reference": {
-                "resource": "samples.csv",
-                "columnReference": "SampleID"
+                "resource": "individuals.csv",
+                "columnReference": "IndividualID"
             }
         }]
     }

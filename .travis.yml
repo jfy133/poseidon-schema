@@ -9,8 +9,7 @@ before_install:
   - sudo apt-get -y install jsonlint
 
 script:
-  # check all .json files
-  - ./check_json.sh
+  - ./_check_json.sh
 
 after_success:
   - ./_deploy_schema_to_homepage.sh

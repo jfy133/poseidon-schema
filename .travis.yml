@@ -1,5 +1,9 @@
 language: minimal
 
+env:
+  global:
+    - secure: "Ee9JCf43iRuCIaKsJepMBBtsQciWO2zsLaiDLc/FIEkJbIWWwKHwAbt5Auml3LvRuRfrLRINGX6GffFCNd3z8M25HD9Xylttt5tys0KuPTlZ4KEChCFY6oX+PpELaEP59O11TvRBqgQdqo41HEEdfHVKkVQZqGN3AQ+4Ss7XotbtuI0yQuge1dLWupIa+mpdD6oizhgZ3bVefdx2GwGQGlZc0WK+mEyk+IphE7e6mJXe3atXx4Rzg498t20qwPJBlIpR2cLMjFKCr2tLf4iVPAkLGMTMrSbgHs7uAxNRyFyBwJWTUVzytA8YxwJNz9NtOwTH+gyWdBFXzvAMQimQ+invI3K/UIQrOpR5VJCvKGrIeXi78v3NQ8p4hizjDY5EO73VBik6XXn9ESC4EEgdE6OL2fku06M8t6+luo0heZL6Al35WRa1rXWEORaydo4YMIR15L2ewodTZo5Y1mt5NmUO9ujahy2K7bukeT9Dwuc3BgmcDT2lDlFrY6ojyeVUkivLnG9t/YivEc9MDy78yoBU4WBHlJfjM1lL1uBteMLYkIyMEgAmFtswTIGAIfJqDMzph8W9rHiquU49UTHV9EPJpnz0+0JwlCrZaxU8wiF6jQThoZXcgZ6I6DKMNDNyoO0EsDc1IUt/SrQpbYm0gEDa/vHacorom0Vp5xIQZWw="
+
 before_install:
   - sudo apt-get update
   - sudo apt-get -y install jsonlint
@@ -7,4 +11,7 @@ before_install:
 script:
   # check all .json files
   - ./check_json.sh
+
+after_success:
+  - ./_deploy_schema_to_homepage.sh
 

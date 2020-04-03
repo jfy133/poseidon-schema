@@ -80,6 +80,18 @@
             "datatype" : "xsd:string",
             "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#genotypingTool"
         }, {
+            "name" : "NrSnpsTotal",
+            "titles": "NrSnpsTotal",
+            "dc:description": "Total nr of SNPs attempted to call (= nr of SNPs in the file specified under GenotypingPositionsFile)",
+            "datatype" : "xsd:nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrSnpsTotal"
+        }, {
+            "name" : "NrSnpsCalled",
+            "titles": "NrSnpsCalled",
+            "dc:description": "Total nr of SNPs called (=non-missing) for this individual",
+            "datatype" : "xsd:nonNegativeInteger",
+            "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#nrSnpsCalled"
+        }, {
             "name" : "GenotypingNote",
             "titles" : "GenotypingNote",
             "dc:description" : "Optional Note for genotyping",

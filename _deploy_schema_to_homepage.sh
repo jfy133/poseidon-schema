@@ -10,10 +10,11 @@ git clone https://${GITHUB_PAT}@github.com/poseidon-framework/poseidon-framework
 
 # copy files
 cp poseidon-schema/terms.rdf.json poseidon-framework.github.io
+cp poseidon-schema/components/*.json poseidon-framework.github.io
 
 # push changes to homepage repo
 cd poseidon-framework.github.io
 git add --all *
-git commit -m "Update the schema"
+git commit -m "Update the schemas"
 git push -q origin master
 

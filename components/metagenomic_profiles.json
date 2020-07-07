@@ -1,0 +1,57 @@
+{
+    "@context" : ["http://www.w3.org/ns/csvw"],
+    "dc:conformsTo" : "http://w3id.org/poseidon/terms.rdf.jsonld#MetagenomicProfileInfo",
+    "columns": [{
+        "name" : "MetagenomicProfileID",
+        "titles" : "MetagenomicProfileID",
+        "dc:description" : "ID of a particular metagenomic profile of a specific sample",
+        "datatype" : {
+            "base" : "string",
+            "format" : "[a-zA-Z0-9_\\-]+"
+        },
+        "propertyUrl" : "dc:identifier",
+        "required" : true
+    }, {
+        "name" : "SequencingLabID",
+        "titles" : "SequencingLabID",
+        "dc:description" : "Foreign Key into the sequencing table",
+        "datatype" : {
+            "base" : "string",
+            "format" : "[a-zA-Z0-9_\\-]+"
+        },
+        "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#seqReference",
+        "required" : true
+    }, {
+        "name" : "MetagenomicProfiler",
+        "titles" : "MetagenomicProfiler",
+        "dc:description" : "Standardized name of the profilers used (can be \"malt\", \"kraken\", \"metaphlan\", \"sparse\").",
+        "datatype" : {
+            "base" : "string",
+            "format" : "malt|kraken|metaphlan|sparse"
+        },
+        "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#metagenomicProfiler",
+        "required" : true
+    }, {
+        "name" : "MetagenomicProfilerVersion",
+        "titles" : "MetagenomicProfilerVersion",
+        "dc:description" : "Version of the metagenomic profiler used",
+        "datatype" : {
+            "base" : "string",
+            "format" : "v[a-zA-Z0-9_\\-\\.]+"
+        },
+        "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#metagenomicProfilerVersion",
+        "required" : true
+    },
+    }, {
+        "name" : "MetagenomicDatabase",
+        "titles" : "MetagenomicDatabase",
+        "dc:description" : "Unique name for a given metagenomic database. Publication based names preferred",
+        "datatype" : {
+            "base" : "string",
+            "format" : "[a-zA-Z0-9_\\-\\.]+"
+        },
+        "propertyUrl" : "http://w3id.org/poseidon/terms.rdf.jsonld#metagenomicDatabase",
+        "required" : true
+    }]
+
+}

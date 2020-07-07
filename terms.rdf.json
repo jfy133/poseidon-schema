@@ -268,5 +268,9 @@
         "@type" : "rdfs:Property",
         "rdfs:comment" : "Optional Note for genotyping",
         "rdfs:range": "xsd:string"
+    }, {
+        "@id" : "#MetagenomicProfileInfo",
+        "@type" : "rdfs:Class",
+        "rdfs:comment" : "The class denoting the Poseidon Metagenomic Profile description object"
     }]
 }
